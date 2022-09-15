@@ -31,7 +31,7 @@ func New() *echo.Echo {
 			})
 		}
 
-		//	Find book by od
+		//	Find book by id
 		book, ok := utils.Find(constant.StaticBookDB, func(item models.Book) bool {
 			return item.ID == uint(id)
 		})
