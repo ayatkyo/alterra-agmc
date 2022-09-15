@@ -22,3 +22,5 @@ var StaticBookDB []models.Book = []models.Book{
 		Year:   2022,
 	},
 }
+
+var StaticBookDBID = len(StaticBookDB)

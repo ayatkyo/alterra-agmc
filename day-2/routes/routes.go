@@ -53,8 +53,29 @@ func New() *echo.Echo {
 	})
 
 	e.POST("/books", func(c echo.Context) error {
+		//	Prepare
+		book := &models.Book{
+			ID: uint(constant.StaticBookDBID) + 1,
+		}
+
+		//	Try bind data
+		err := c.Bind(book)
+		if err != nil {
+			return c.JSON(http.StatusBadRequest, map[string]any{
+				"success": false,
+				"message": err.Error(),
+			})
+		}
+
+		//	Create new book
+		constant.StaticBookDB = append(constant.StaticBookDB, *book)
+
+		//	Increment ID
+		constant.StaticBookDBID = constant.StaticBookDBID + 1
+
 		return c.JSON(http.StatusOK, map[string]any{
 			"message": "Create new book",
+			"data":    book,
 		})
 	})
 
