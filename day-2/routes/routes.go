@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"fmt"
 	"net/http"
 	"strconv"
 
@@ -25,7 +26,7 @@ func New() *echo.Echo {
 		//	Convert id param to integer
 		id, err := strconv.Atoi(c.Param("id"))
 		if err != nil {
-			return c.JSON(400, map[string]any{
+			return c.JSON(http.StatusBadRequest, map[string]any{
 				"message": "Cannot convert id to int",
 				"success": false,
 			})
@@ -66,10 +67,23 @@ func New() *echo.Echo {
 	})
 
 	e.DELETE("/books/:id", func(c echo.Context) error {
-		id := c.Param("id")
+		//	Convert id param to integer
+		id, err := strconv.Atoi(c.Param("id"))
+		if err != nil {
+			return c.JSON(http.StatusBadRequest, map[string]any{
+				"message": "Cannot convert id to int",
+				"success": false,
+			})
+		}
+
+		//	Remove by id
+		utils.Delete(&constant.StaticBookDB, func(item models.Book) bool {
+			return item.ID == uint(id)
+		})
+
 		return c.JSON(http.StatusOK, map[string]any{
-			"message": "Delete book by id",
-			"data":    id,
+			"success": true,
+			"message": fmt.Sprintf("Successfully delete book with id %d", id),
 		})
 	})
 
