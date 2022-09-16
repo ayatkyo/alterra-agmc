@@ -14,6 +14,7 @@ import (
 func New() *echo.Echo {
 	e := echo.New()
 
+	// 	TODO Refactor into controller
 	// 	Books
 	e.GET("/books", func(c echo.Context) error {
 		return c.JSON(http.StatusOK, map[string]any{
@@ -80,10 +81,39 @@ func New() *echo.Echo {
 	})
 
 	e.PUT("/books/:id", func(c echo.Context) error {
-		id := c.Param("id")
+		//	Convert id param to integer
+		id, err := strconv.Atoi(c.Param("id"))
+		if err != nil {
+			return c.JSON(http.StatusBadRequest, map[string]any{
+				"message": "Cannot convert id to int",
+				"success": false,
+			})
+		}
+
+		//	Find book
+		var idx int
+		ok := false
+		for i, item := range constant.StaticBookDB {
+			idx = i
+			if item.ID == uint(id) {
+				ok = true
+				break
+			}
+		}
+		if !ok {
+			return c.JSON(400, map[string]any{
+				"message": "Book not found",
+				"success": false,
+			})
+		}
+
+		//	Update book
+		book := &constant.StaticBookDB[idx]
+		c.Bind(book)
+
 		return c.JSON(http.StatusOK, map[string]any{
 			"message": "Update book by id",
-			"data":    id,
+			"data":    book,
 		})
 	})
 
