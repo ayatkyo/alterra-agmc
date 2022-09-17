@@ -15,5 +15,12 @@ func New() *echo.Echo {
 	e.PUT("/books/:id", controllers.BookUpdate)
 	e.DELETE("/books/:id", controllers.BookDestroy)
 
+	// User
+	e.GET("/users", controllers.UserGetAll)
+	e.GET("/users/:id", controllers.UserGetByID)
+	e.POST("/users", controllers.UserStore)
+	e.PUT("/users/:id", controllers.UserUpdate)
+	e.DELETE("/users/:id", controllers.UserDestroy)
+
 	return e
 }
