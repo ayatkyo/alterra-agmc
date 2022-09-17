@@ -3,11 +3,20 @@ package controllers
 import (
 	"net/http"
 
+	"github.com/ayatkyo/alterra-agcm/day-2/lib/database"
 	"github.com/labstack/echo/v4"
 )
 
 func UserGetAll(c echo.Context) error {
-	return c.String(http.StatusOK, "Get all users")
+	users, err := database.GetUsers()
+	if err != nil {
+		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	}
+
+	return c.JSON(http.StatusOK, map[string]any{
+		"message": "Get all users",
+		"data":    users,
+	})
 }
 
 func UserGetByID(c echo.Context) error {
