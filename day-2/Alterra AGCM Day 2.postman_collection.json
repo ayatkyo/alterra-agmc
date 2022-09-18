@@ -1,0 +1,799 @@
+{
+	"info": {
+		"_postman_id": "f287ebeb-c377-4f73-a844-9e0197325916",
+		"name": "Alterra AGCM Day 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "{user id}",
+					"item": [
+						{
+							"name": "Get user by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/users/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/users/:id",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 18 Sep 2022 03:29:11 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "47"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"record not found\",\n    \"success\": false\n}"
+								},
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/users/:id",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 18 Sep 2022 03:29:54 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "198"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"created_at\": \"2022-09-18T03:28:47.791Z\",\n        \"email\": \"ayat.kyo@gmail.com\",\n        \"fullname\": \"Hidayatullah\",\n        \"id\": 1,\n        \"updated_at\": \"2022-09-18T03:28:47.791Z\",\n        \"username\": \"ayat\"\n    },\n    \"message\": \"Get user by id\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update user by ID",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fullname\": \"Muhammad Al-Fath\",\r\n  \"username\": \"alfath\",\r\n  \"email\": \"alfath@gmail.com\",\r\n  \"password\": \"rahasiasangat\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/users/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fullname\": \"Muhammad Al-Fath\",\r\n  \"username\": \"alfath\",\r\n  \"email\": \"alfath@gmail.com\",\r\n  \"password\": \"rahasiasangat\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/users/:id",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 18 Sep 2022 03:30:27 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "293"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-09-18T03:28:47.791Z\",\n        \"UpdatedAt\": \"2022-09-18T11:30:27.698+08:00\",\n        \"DeletedAt\": null,\n        \"fullname\": \"Muhammad Al-Fath\",\n        \"username\": \"alfath\",\n        \"email\": \"alfath@gmail.com\",\n        \"password\": \"$2a$07$K6Tk9HepjQx4Ui.xJOCDqubSf89Ke5a53Wy7PDkQv7BVj3oZbEClW\"\n    },\n    \"message\": \"Update user\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete user by ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/users/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/users/:id",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 18 Sep 2022 03:31:36 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "64"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Successfully delete user with id 1\",\n    \"success\": true\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/users",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 18 Sep 2022 03:28:59 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "288"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"ID\": 1,\n            \"CreatedAt\": \"2022-09-18T03:28:47.791Z\",\n            \"UpdatedAt\": \"2022-09-18T03:28:47.791Z\",\n            \"DeletedAt\": null,\n            \"fullname\": \"Hidayatullah\",\n            \"username\": \"ayat\",\n            \"email\": \"ayat.kyo@gmail.com\",\n            \"password\": \"$2a$07$yll4yLfpfk92LGPKy3HOke1Fbuaf3xO5.KQur/9mRoSxIA4LO3tsW\"\n        }\n    ],\n    \"message\": \"Get all users\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fullname\": \"Hidayatullah\",\r\n  \"username\": \"ayat\",\r\n  \"email\": \"ayat.kyo@gmail.com\",\r\n  \"password\": \"sangatrahasia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fullname\": \"Hidayatullah\",\r\n  \"username\": \"ayat\",\r\n  \"email\": \"ayat.kyo@gmail.com\",\r\n  \"password\": \"sangatrahasia\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/users",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 18 Sep 2022 03:28:47 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "206"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"created_at\": \"2022-09-18T11:28:47.791+08:00\",\n        \"email\": \"ayat.kyo@gmail.com\",\n        \"fullname\": \"Hidayatullah\",\n        \"id\": 1,\n        \"updated_at\": \"2022-09-18T11:28:47.791+08:00\",\n        \"username\": \"ayat\"\n    },\n    \"message\": \"User created\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "{book id}",
+					"item": [
+						{
+							"name": "Update book by ID",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Judul Buku\",\r\n  \"author\": \"Hidayatullah\",\r\n  \"year\": 2022\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/books/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"books",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update book by ID",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"title\": \"Judul Buku\",\r\n  \"author\": \"Hidayatullah\",\r\n  \"year\": 2022\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/books/:id",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 18 Sep 2022 03:26:33 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "105"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 3,\n        \"title\": \"Judul Buku\",\n        \"author\": \"Hidayatullah\",\n        \"year\": 2022\n    },\n    \"message\": \"Update book by id\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete book by ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/books/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"books",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete book by ID",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/books/:id",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 18 Sep 2022 03:26:41 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "64"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Successfully delete book with id 2\",\n    \"success\": true\n}"
+								}
+							]
+						},
+						{
+							"name": "Get book by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/books/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"books",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Book not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/books/:id",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "5"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 18 Sep 2022 03:26:47 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "45"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Book not found\",\n    \"success\": false\n}"
+								},
+								{
+									"name": "200 OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/books/:id",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 18 Sep 2022 03:27:04 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "117"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 3,\n        \"title\": \"Judul Buku\",\n        \"author\": \"Hidayatullah\",\n        \"year\": 2022\n    },\n    \"message\": \"Get book by id\",\n    \"success\": true\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Get all books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/books",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all books",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/books",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"books"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 18 Sep 2022 03:26:08 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "423"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"Software Architecture with C++\",\n            \"author\": \"Adrian Ostrowsmodels\",\n            \"year\": 2021\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Modern C++ Programming Cookbook - Second Edition\",\n            \"author\": \"Marius Bancila\",\n            \"year\": 2020\n        },\n        {\n            \"id\": 3,\n            \"title\": \"Flutter Apprentice - Third Edition\",\n            \"author\": \"Vincent Ngo, Kevin D Moore and Michael Katz\",\n            \"year\": 2022\n        },\n        {\n            \"id\": 4,\n            \"title\": \"Learning Go\",\n            \"author\": \"Jon Bodner\",\n            \"year\": 2021\n        }\n    ],\n    \"message\": \"Get all books\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Learning Go\",\r\n  \"author\": \"Jon Bodner\",\r\n  \"year\": 2021\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/books",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create book",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Learning Go\",\r\n  \"author\": \"Jon Bodner\",\r\n  \"year\": 2021\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/books",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"books"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 18 Sep 2022 03:26:01 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "102"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 4,\n        \"title\": \"Learning Go\",\n        \"author\": \"Jon Bodner\",\n        \"year\": 2021\n    },\n    \"message\": \"Create new book\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
