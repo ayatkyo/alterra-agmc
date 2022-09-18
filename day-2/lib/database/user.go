@@ -32,3 +32,11 @@ func CreateUser(user models.User) (any, error) {
 
 	return user, nil
 }
+
+func UpdateUser(user models.User) (any, error) {
+	if e := config.DB.Save(&user).Error; e != nil {
+		return nil, e
+	}
+
+	return user, nil
+}

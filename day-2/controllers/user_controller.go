@@ -108,7 +108,68 @@ func UserStore(c echo.Context) error {
 }
 
 func UserUpdate(c echo.Context) error {
-	return c.String(200, "Update user by id")
+	//	Parse id
+	id, err := strconv.Atoi(c.Param("id"))
+	if err != nil {
+		return c.JSON(http.StatusBadRequest, map[string]any{
+			"message": "Cannot parse id",
+			"success": false,
+		})
+	}
+
+	//	Get user input
+	userData := models.User{}
+	err = c.Bind(&userData)
+	if err != nil {
+		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	}
+
+	//	Find user
+	found, err := database.GetUserByID(id)
+	if err != nil {
+		return c.JSON(http.StatusBadRequest, map[string]any{
+			"message": err.Error(),
+			"success": false,
+		})
+	}
+
+	//	Assert to model
+	user, ok := found.(models.User)
+	if !ok {
+		return c.JSON(http.StatusBadRequest, map[string]any{
+			"message": "Cannot parse user",
+			"success": false,
+		})
+	}
+
+	//	Update data
+	user.Fullname = userData.Fullname
+	user.Email = userData.Email
+	user.Username = userData.Username
+
+	if userData.Password != "" {
+		//	Create password hash
+		passwordHash, err := utils.BcryptMake(userData.Password)
+		if err != nil {
+			return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+		}
+
+		//	Set password hash
+		user.Password = passwordHash
+	}
+
+	updatedUser, err := database.UpdateUser(user)
+	if err != nil {
+		return c.JSON(http.StatusBadRequest, map[string]any{
+			"message": err.Error(),
+			"success": false,
+		})
+	}
+
+	return c.JSON(http.StatusOK, map[string]any{
+		"message": "Update user",
+		"data":    updatedUser,
+	})
 }
 
 func UserDestroy(c echo.Context) error {
