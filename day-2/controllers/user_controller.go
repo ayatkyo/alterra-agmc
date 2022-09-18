@@ -193,6 +193,6 @@ func UserDestroy(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, map[string]any{
 		"success": true,
-		"message": fmt.Sprintf("Successfully delete book with id %d", id),
+		"message": fmt.Sprintf("Successfully delete user with id %d", id),
 	})
 }
