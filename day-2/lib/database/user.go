@@ -1,6 +1,8 @@
 package database
 
 import (
+	"errors"
+
 	"github.com/ayatkyo/alterra-agcm/day-2/config"
 	"github.com/ayatkyo/alterra-agcm/day-2/models"
 )
@@ -39,4 +41,26 @@ func UpdateUser(user models.User) (any, error) {
 	}
 
 	return user, nil
+}
+
+func DeleteUser(ID int) error {
+	var user models.User
+
+	//	Find user
+	e := config.DB.Where("id = ?", ID).First(&user).Error
+	if e != nil {
+		return e
+	}
+
+	if user.ID == 0 {
+		return errors.New("User not found")
+	}
+
+	//	Delete
+	e = config.DB.Delete(&user).Error
+	if e != nil {
+		return e
+	}
+
+	return nil
 }

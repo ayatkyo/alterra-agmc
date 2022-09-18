@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"net/http"
 	"strconv"
 
@@ -173,5 +174,25 @@ func UserUpdate(c echo.Context) error {
 }
 
 func UserDestroy(c echo.Context) error {
-	return c.String(200, "Delete user by id")
+	//	Parse id
+	id, err := strconv.Atoi(c.Param("id"))
+	if err != nil {
+		return c.JSON(http.StatusBadRequest, map[string]any{
+			"message": "Cannot parse id",
+			"success": false,
+		})
+	}
+
+	err = database.DeleteUser(id)
+	if err != nil {
+		return c.JSON(http.StatusBadRequest, map[string]any{
+			"message": err.Error(),
+			"success": false,
+		})
+	}
+
+	return c.JSON(http.StatusOK, map[string]any{
+		"success": true,
+		"message": fmt.Sprintf("Successfully delete book with id %d", id),
+	})
 }
