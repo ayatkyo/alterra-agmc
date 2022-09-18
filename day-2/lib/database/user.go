@@ -14,3 +14,21 @@ func GetUsers() (any, error) {
 
 	return users, nil
 }
+
+func GetUserByID(ID int) (any, error) {
+	var user models.User
+
+	if e := config.DB.Where("id = ?", ID).First(&user).Error; e != nil {
+		return nil, e
+	}
+
+	return user, nil
+}
+
+func CreateUser(user models.User) (any, error) {
+	if e := config.DB.Create(&user).Error; e != nil {
+		return nil, e
+	}
+
+	return user, nil
+}
