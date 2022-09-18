@@ -1,5 +1,7 @@
 package utils
 
+import "golang.org/x/crypto/bcrypt"
+
 func Find[T any](collection []T, predicate func(T) bool) (T, bool) {
 	for _, item := range collection {
 		if predicate(item) {
@@ -21,4 +23,14 @@ func Delete[T any](collection *[]T, predicate func(T) bool) {
 	}
 
 	*collection = list
+}
+
+func BcryptMake(password string) (string, error) {
+	b, err := bcrypt.GenerateFromPassword([]byte(password), 7)
+	return string(b), err
+}
+
+func BcryptCheck(password, hash string) bool {
+	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
+	return err == nil
 }
