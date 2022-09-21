@@ -1,10 +1,10 @@
 package controllers
 
 import (
-	"fmt"
 	"strconv"
 
 	"github.com/ayatkyo/alterra-agcm/day-3/lib/database"
+	"github.com/ayatkyo/alterra-agcm/day-3/middlewares"
 	"github.com/ayatkyo/alterra-agcm/day-3/models"
 	"github.com/ayatkyo/alterra-agcm/day-3/utils"
 	"github.com/labstack/echo/v4"
@@ -86,6 +86,12 @@ func UserUpdate(c echo.Context) error {
 		return utils.ResponseError(c, "Cannot parse user ID")
 	}
 
+	// limit to only himself
+	authID := middlewares.ExtractTokenUserID(c)
+	if authID != id {
+		return utils.ResponseError(c, "Cannot edit other user data")
+	}
+
 	// Get user input
 	userData := models.User{}
 	err = c.Bind(&userData)
@@ -128,7 +134,7 @@ func UserUpdate(c echo.Context) error {
 		return utils.ResponseError(c, err.Error())
 	}
 
-	return utils.ResponseSuccess(c, "User updated", user.AsResponse())
+	return utils.ResponseSuccess(c, "Your data has been updated", user.AsResponse())
 }
 
 func UserDestroy(c echo.Context) error {
@@ -138,11 +144,17 @@ func UserDestroy(c echo.Context) error {
 		return utils.ResponseError(c, "Cannot parse user ID")
 	}
 
+	// limit to only himself
+	authID := middlewares.ExtractTokenUserID(c)
+	if authID != id {
+		return utils.ResponseError(c, "Cannot delete other user data")
+	}
+
 	// Delete user in db
 	err = database.DeleteUser(id)
 	if err != nil {
 		return utils.ResponseError(c, err.Error())
 	}
 
-	return utils.ResponseSuccess(c, fmt.Sprintf("Successfully delete user with ID %d", id), nil)
+	return utils.ResponseSuccess(c, "Your account has been deleted", nil)
 }

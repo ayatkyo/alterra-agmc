@@ -5,4 +5,4 @@
 - [x]  Log Implementation
 - [x] Implementing JWT Auth for protecting API
 - [ ] (GOOD) Implement **Validator middleware**
-- [ ] (PLUS) Limit user to do PUT and DELETE only on himself
+- [x] (PLUS) Limit user to do PUT and DELETE only on himself
