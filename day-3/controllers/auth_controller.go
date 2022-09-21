@@ -9,18 +9,25 @@ import (
 )
 
 func AuthLogin(c echo.Context) error {
-	username := c.FormValue("username")
-	password := c.FormValue("password")
+	req := models.UserLogin{}
+	err := c.Bind(&req)
+	if err != nil {
+		return utils.ResponseError(c, err.Error())
+	}
+
+	if err = c.Validate(req); err != nil {
+		return utils.ResponseError(c, err.Error())
+	}
 
 	// Find user
 	var user models.User
-	err := config.DB.Where("username = @username OR email = @username", map[string]any{"username": username}).First(&user).Error
+	err = config.DB.Where("username = @username OR email = @username", map[string]any{"username": req.Username}).First(&user).Error
 	if err != nil {
 		return utils.ResponseError(c, err.Error())
 	}
 
 	// compare password
-	if !utils.BcryptCheck(password, user.Password) {
+	if !utils.BcryptCheck(req.Password, user.Password) {
 		return utils.ResponseError(c, "Username or password is incorrect")
 	}
 
