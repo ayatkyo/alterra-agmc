@@ -13,6 +13,13 @@ func ResponseError(c echo.Context, message string) error {
 	})
 }
 
+func ResponseErrorWithCode(c echo.Context, message string, code int) error {
+	return c.JSON(code, map[string]any{
+		"success": false,
+		"message": message,
+	})
+}
+
 func ResponseSuccess(c echo.Context, message string, data any) error {
 	res := map[string]any{
 		"success": true,

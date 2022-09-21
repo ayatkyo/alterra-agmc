@@ -2,6 +2,7 @@ package routes
 
 import (
 	"github.com/ayatkyo/alterra-agcm/day-3/controllers"
+	"github.com/ayatkyo/alterra-agcm/day-3/middlewares"
 	"github.com/labstack/echo/v4"
 )
 
@@ -14,16 +15,16 @@ func New() *echo.Echo {
 	// Books
 	e.GET("/books", controllers.BookGetAll)
 	e.GET("/books/:id", controllers.BookGetByID)
-	e.POST("/books", controllers.BookStore)
-	e.PUT("/books/:id", controllers.BookUpdate)
-	e.DELETE("/books/:id", controllers.BookDestroy)
+	e.POST("/books", controllers.BookStore, middlewares.JWTMiddleware)
+	e.PUT("/books/:id", controllers.BookUpdate, middlewares.JWTMiddleware)
+	e.DELETE("/books/:id", controllers.BookDestroy, middlewares.JWTMiddleware)
 
 	// User
-	e.GET("/users", controllers.UserGetAll)
-	e.GET("/users/:id", controllers.UserGetByID)
+	e.GET("/users", controllers.UserGetAll, middlewares.JWTMiddleware)
+	e.GET("/users/:id", controllers.UserGetByID, middlewares.JWTMiddleware)
 	e.POST("/users", controllers.UserStore)
-	e.PUT("/users/:id", controllers.UserUpdate)
-	e.DELETE("/users/:id", controllers.UserDestroy)
+	e.PUT("/users/:id", controllers.UserUpdate, middlewares.JWTMiddleware)
+	e.DELETE("/users/:id", controllers.UserDestroy, middlewares.JWTMiddleware)
 
 	return e
 }
