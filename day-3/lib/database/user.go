@@ -46,7 +46,7 @@ func UpdateUser(user models.User) (any, error) {
 func DeleteUser(ID int) error {
 	var user models.User
 
-	//	Find user
+	// Find user
 	e := config.DB.Where("id = ?", ID).First(&user).Error
 	if e != nil {
 		return e
@@ -56,7 +56,7 @@ func DeleteUser(ID int) error {
 		return errors.New("User not found")
 	}
 
-	//	Delete
+	// Delete
 	e = config.DB.Delete(&user).Error
 	if e != nil {
 		return e

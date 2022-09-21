@@ -8,6 +8,9 @@ import (
 func New() *echo.Echo {
 	e := echo.New()
 
+	// Auth
+	e.POST("/login", controllers.AuthLogin)
+
 	// Books
 	e.GET("/books", controllers.BookGetAll)
 	e.GET("/books/:id", controllers.BookGetByID)
