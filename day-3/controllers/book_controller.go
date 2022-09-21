@@ -44,6 +44,11 @@ func BookStore(c echo.Context) error {
 		return utils.ResponseError(c, err.Error())
 	}
 
+	// validate
+	if err = c.Validate(book); err != nil {
+		return utils.ResponseError(c, err.Error())
+	}
+
 	// Create new book
 	database.BookDB = append(database.BookDB, *book)
 
@@ -68,9 +73,23 @@ func BookUpdate(c echo.Context) error {
 		return utils.ResponseError(c, "Book not found")
 	}
 
+	// validate
+	req := models.Book{}
+	err = c.Bind(&req)
+	if err != nil {
+		return utils.ResponseError(c, err.Error())
+	}
+
+	// validate
+	if err = c.Validate(req); err != nil {
+		return utils.ResponseError(c, err.Error())
+	}
+
 	// Update book
 	book := &database.BookDB[idx]
-	c.Bind(book)
+	book.Title = req.Title
+	book.Author = req.Author
+	book.Year = req.Year
 
 	return utils.ResponseSuccess(c, "Book updated", book)
 }
@@ -87,5 +106,5 @@ func BookDestroy(c echo.Context) error {
 		return item.ID == uint(id)
 	})
 
-	return utils.ResponseSuccess(c, fmt.Sprintf("Successfully delete book with id %d", id), nil)
+	return utils.ResponseSuccess(c, fmt.Sprintf("Successfully delete book with ID %d", id), nil)
 }
