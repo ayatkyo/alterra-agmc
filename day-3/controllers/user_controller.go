@@ -123,12 +123,12 @@ func UserUpdate(c echo.Context) error {
 	}
 
 	// Update in db
-	updatedUser, err := database.UpdateUser(user)
+	_, err = database.UpdateUser(user)
 	if err != nil {
 		return utils.ResponseError(c, err.Error())
 	}
 
-	return utils.ResponseSuccess(c, "User updated", updatedUser)
+	return utils.ResponseSuccess(c, "User updated", user.AsResponse())
 }
 
 func UserDestroy(c echo.Context) error {
@@ -144,5 +144,5 @@ func UserDestroy(c echo.Context) error {
 		return utils.ResponseError(c, err.Error())
 	}
 
-	return utils.ResponseSuccess(c, fmt.Sprintf("Successfully delete user with id %d", id), nil)
+	return utils.ResponseSuccess(c, fmt.Sprintf("Successfully delete user with ID %d", id), nil)
 }
