@@ -55,6 +55,11 @@ func UserStore(c echo.Context) error {
 		return utils.ResponseError(c, err.Error())
 	}
 
+	// validate
+	if err = c.Validate(user); err != nil {
+		return utils.ResponseError(c, err.Error())
+	}
+
 	// Create password hash
 	passwordHash, err := utils.BcryptMake(user.Password)
 	if err != nil {
@@ -96,6 +101,11 @@ func UserUpdate(c echo.Context) error {
 	userData := models.User{}
 	err = c.Bind(&userData)
 	if err != nil {
+		return utils.ResponseError(c, err.Error())
+	}
+
+	// validate
+	if err = c.Validate(userData); err != nil {
 		return utils.ResponseError(c, err.Error())
 	}
 
