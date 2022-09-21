@@ -20,7 +20,7 @@ func main() {
 	e := routes.New()
 
 	// After route middlewares
-	middlewares.LogMiddlewares(e)
+	middlewares.LogMiddleware(e)
 
 	// Start App
 	e.Logger.Fatal(e.Start(fmt.Sprintf("%s:%s", viper.Get("APP_HOST"), viper.Get("APP_PORT"))))
