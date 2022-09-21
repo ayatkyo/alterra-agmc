@@ -60,6 +60,11 @@ func UserStore(c echo.Context) error {
 		return utils.ResponseError(c, err.Error())
 	}
 
+	// check unique email and username
+	if !database.UniqueUser(user) {
+		return utils.ResponseError(c, "Username or email already exists")
+	}
+
 	// Create password hash
 	passwordHash, err := utils.BcryptMake(user.Password)
 	if err != nil {
@@ -107,6 +112,12 @@ func UserUpdate(c echo.Context) error {
 	// validate
 	if err = c.Validate(userData); err != nil {
 		return utils.ResponseError(c, err.Error())
+	}
+
+	// check unique email and username
+	userData.ID = uint(id)
+	if !database.UniqueUser(userData) {
+		return utils.ResponseError(c, "Username or email already exists")
 	}
 
 	// Find user

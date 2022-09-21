@@ -64,3 +64,23 @@ func DeleteUser(ID int) error {
 
 	return nil
 }
+
+func UniqueUser(user models.User) bool {
+	q := "(username = @username OR email = @email)"
+
+	if user.ID != 0 {
+		q += " AND id != @id"
+	}
+
+	var count int64
+	err := config.DB.Model(&models.User{}).Where(q, map[string]any{
+		"username": user.Username,
+		"email":    user.Email,
+		"id":       user.ID,
+	}).Count(&count).Error
+	if err != nil {
+		return false
+	}
+
+	return count == 0
+}
