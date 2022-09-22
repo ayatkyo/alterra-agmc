@@ -2,7 +2,7 @@
 
 ## Objective
 
-- [ ] Implement Integration Testing
+- [x] Implement Integration Testing
 
 ## Task
 
@@ -11,3 +11,11 @@
   - Valid test case, e.g. http response 200, 201
   - Invalid test case, e.g. http response 400, 401, 500
 - No minimum coverage percentage, but higher is better
+
+## How to run
+
+Run this command:
+
+```bash
+go test ./... -v
+```
