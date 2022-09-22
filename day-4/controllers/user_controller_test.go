@@ -295,7 +295,7 @@ func TestUserUpdateUniqueEmail(t *testing.T) {
 
 func TestUserDestroy(t *testing.T) {
 	// Create context
-	c, res, _ := utils.CreateTestContext(http.MethodPut, "/users/:id", "")
+	c, res, _ := utils.CreateTestContext(http.MethodDelete, "/users/:id", "")
 
 	// Set param
 	c.SetParamNames("id")
@@ -319,7 +319,7 @@ func TestUserDestroy(t *testing.T) {
 
 func TestUserDestroyInvalidParam(t *testing.T) {
 	// Create context
-	c, res, _ := utils.CreateTestContext(http.MethodPut, "/users/:id", "")
+	c, res, _ := utils.CreateTestContext(http.MethodDelete, "/users/:id", "")
 
 	// Set param
 	c.SetParamNames("id")
@@ -338,7 +338,7 @@ func TestUserDestroyInvalidParam(t *testing.T) {
 
 func TestUserDestroyOtherUser(t *testing.T) {
 	// Create context
-	c, res, _ := utils.CreateTestContext(http.MethodPut, "/users/:id", "")
+	c, res, _ := utils.CreateTestContext(http.MethodDelete, "/users/:id", "")
 
 	// Set param
 	c.SetParamNames("id")
