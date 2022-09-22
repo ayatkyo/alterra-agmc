@@ -44,3 +44,8 @@ func BcryptCheck(password, hash string) bool {
 	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
 	return err == nil
 }
+
+func BcryptMustMake(password string) string {
+	b, _ := BcryptMake(password)
+	return b
+}
