@@ -209,6 +209,26 @@ func TestUserUpdateInvalidParam(t *testing.T) {
 	}
 }
 
+func TestUserUpadeValidation(t *testing.T) {
+	// Create context
+	c, res, _ := utils.CreateTestContext(http.MethodPut, "/users/:id", "")
+
+	// Set param
+	c.SetParamNames("id")
+	c.SetParamValues("2")
+
+	// Set JWT token
+	token, _ := middlewares.CreateToken(1)
+	c.Request().Header.Set(echo.HeaderAuthorization, fmt.Sprintf("Bearer %s", token))
+
+	if assert.NoError(t, middlewares.JWTMiddleware(UserUpdate)(c)) {
+		resJSON := utils.ParseResponseJSON(res.Body.String())
+
+		assert.Equal(t, http.StatusBadRequest, res.Code)
+		assert.NotEqual(t, "Your data has been updated", resJSON["message"])
+	}
+}
+
 func TestUserUpdateOtherUser(t *testing.T) {
 	// Prepare test user
 	userTest := models.User{
