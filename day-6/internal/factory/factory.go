@@ -7,6 +7,7 @@ import (
 
 type Factory struct {
 	UserRepository repository.User
+	BookRepository repository.Book
 }
 
 func NewFactory() *Factory {
@@ -14,5 +15,6 @@ func NewFactory() *Factory {
 
 	return &Factory{
 		UserRepository: repository.NewUserRepository(db),
+		BookRepository: repository.NewBookRepository(),
 	}
 }

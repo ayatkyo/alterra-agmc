@@ -2,6 +2,7 @@ package http
 
 import (
 	"github.com/ayatkyo/alterra-agcm/day-6/internal/app/auth"
+	"github.com/ayatkyo/alterra-agcm/day-6/internal/app/book"
 	"github.com/ayatkyo/alterra-agcm/day-6/internal/app/user"
 	"github.com/ayatkyo/alterra-agcm/day-6/internal/factory"
 	"github.com/ayatkyo/alterra-agcm/day-6/pkg/utils"
@@ -18,4 +19,5 @@ func NewHttp(e *echo.Echo, f *factory.Factory) {
 	api := e.Group("/api")
 	auth.NewHandler(f).Route(api.Group("/auth"))
 	user.NewHandler(f).Route(api.Group("/users"))
+	book.NewHandler(f).Route(api.Group("/books"))
 }
