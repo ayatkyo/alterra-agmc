@@ -34,9 +34,7 @@ func BookGetByID(c echo.Context) error {
 
 func BookStore(c echo.Context) error {
 	// Prepare
-	book := &models.Book{
-		ID: uint(database.BookDBID) + 1,
-	}
+	book := &models.Book{}
 
 	// Try bind data
 	err := c.Bind(book)
@@ -50,6 +48,7 @@ func BookStore(c echo.Context) error {
 	}
 
 	// Create new book
+	book.ID = uint(database.BookDBID) + 1
 	database.BookDB = append(database.BookDB, *book)
 
 	// Increment ID
