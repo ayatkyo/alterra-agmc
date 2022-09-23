@@ -1,3 +1,5 @@
 package constants
 
-const JWT_SECRET = "super_duper_secret_for_jwt"
+import "github.com/spf13/viper"
+
+var JWT_SECRET = viper.GetString("JWT_SECRET")
