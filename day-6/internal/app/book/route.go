@@ -8,7 +8,7 @@ import (
 func (h *handler) Route(g *echo.Group) {
 	g.GET("", h.GetAll)
 	g.GET("/:id", h.GetByID)
-	g.POST("/:id", h.Store, middlewares.JWTMiddleware)
+	g.POST("", h.Store, middlewares.JWTMiddleware)
 	g.PUT("/:id", h.Update, middlewares.JWTMiddleware)
 	g.DELETE("/:id", h.Destroy, middlewares.JWTMiddleware)
 }
