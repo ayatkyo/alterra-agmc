@@ -9,9 +9,13 @@ import (
 )
 
 type User interface {
+	FindAll(c context.Context) ([]models.User, error)
 	FirstByUsernameOrEmail(c context.Context, username string) (models.User, error)
-	IsUnique(c context.Context, username string, email string, ignoreID int) bool
+	FindByID(c context.Context, ID uint) (models.User, error)
 	Store(c context.Context, data *dto.AuthSignupRequest) (models.User, error)
+	Update(c context.Context, user *models.User) error
+	Destroy(c context.Context, ID uint) error
+	IsUnique(c context.Context, username string, email string, ignoreID int) bool
 }
 
 type user struct {
@@ -28,22 +32,16 @@ func (r *user) FirstByUsernameOrEmail(c context.Context, username string) (model
 	return user, err
 }
 
-func (r *user) IsUnique(c context.Context, username string, email string, ignoreID int) bool {
-	q := "(username = @username OR email = @email)"
-	if ignoreID != 0 {
-		q += " AND id != @id"
-	}
+func (r *user) FindAll(c context.Context) ([]models.User, error) {
+	var users []models.User
+	err := r.DB.WithContext(c).Model(&models.User{}).Find(&users).Error
+	return users, err
+}
 
-	var count int64
-	if err := r.DB.Model(&models.User{}).Where(q, map[string]any{
-		"username": username,
-		"email":    email,
-		"id":       ignoreID,
-	}).Count(&count).Error; err != nil {
-		return false
-	}
-
-	return count == 0
+func (r *user) FindByID(c context.Context, ID uint) (models.User, error) {
+	var user models.User
+	err := r.DB.WithContext(c).Where("id = ?", ID).First(&user).Error
+	return user, err
 }
 
 func (r *user) Store(c context.Context, data *dto.AuthSignupRequest) (models.User, error) {
@@ -59,4 +57,32 @@ func (r *user) Store(c context.Context, data *dto.AuthSignupRequest) (models.Use
 	}
 
 	return newUser, nil
+}
+
+func (r *user) Update(c context.Context, user *models.User) error {
+	err := r.DB.WithContext(c).Save(&user).Error
+	return err
+}
+
+func (r *user) Destroy(c context.Context, ID uint) error {
+	err := r.DB.WithContext(c).Where("id = ?", ID).Delete(&models.User{}).Error
+	return err
+}
+
+func (r *user) IsUnique(c context.Context, username string, email string, ignoreID int) bool {
+	q := "(username = @username OR email = @email)"
+	if ignoreID != 0 {
+		q += " AND id != @id"
+	}
+
+	var count int64
+	if err := r.DB.WithContext(c).Model(&models.User{}).Where(q, map[string]any{
+		"username": username,
+		"email":    email,
+		"id":       ignoreID,
+	}).Count(&count).Error; err != nil {
+		return false
+	}
+
+	return count == 0
 }
