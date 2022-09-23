@@ -19,3 +19,16 @@ Run this command:
 ```bash
 go test ./... -v
 ```
+
+or when using VSCode
+
+<p align="center">
+  <img
+    width="350"
+    src="./day-4-test-vscode.jpg"
+  />
+</p>
+
+- Click on **Testing** in **Activity Bar**
+- Click on **Run Test**
+- The test will begin
