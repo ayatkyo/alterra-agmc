@@ -8,4 +8,6 @@ Submission repo for **Advanced Golang Mini Course**.
 - [Day 2 - ORM & Code Structure (MVC)](day-2/)
 - [Day 3 - Middleware](day-3/)
 - [Day 4 - Unit Testing](day-4/)
+- Day 5 - No task
+- [Day 6 - Clean Architecture](day-6/)
 - ...
