@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  api:
+    image: 'ayatkyo/agmc-ayat:latest'
+    container_name: api
+    ports:
+      - 15000:15000
+    restart: on-failure
+    environment:
+      - APP_HOST=api
+      - APP_PORT=15000
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_DATABASE=alterra_agmc
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+      - JWT_SECRET=super_duper_top_marcotop_secret_key
+    depends_on:
+      - db
+  db:
+    image: 'mariadb:latest'
+    container_name: db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=alterra_agmc
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
