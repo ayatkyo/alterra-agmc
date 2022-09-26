@@ -1,4 +1,4 @@
-name: Auto Deploy to VPS
+name: CI/CD to VPS
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
       - day-10-auto-deploy
 
 jobs:
-  deploy:
-    name: "Build and push Docker image then deploy to VPS"
+  build:
+    name: "Build Docker image"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,6 +27,11 @@ jobs:
       - name: Push image to Docker Hub
         run: docker push ${{ secrets.DOCKER_HUB_IMAGENAME }}
         
+  deploy:
+    name: "Deploy to VPS"
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Deploy to VPS
         env:
           SSH_PRIVATE_KEY: ${{ secrets.REMOTE_SSH }}
