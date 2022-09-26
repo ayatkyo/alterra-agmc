@@ -1,0 +1,42 @@
+name: Auto Deploy to VPS
+
+on:
+  push:
+    branches:
+      - "day-10-auto-deploy"
+
+jobs:
+  deploy:
+    name: "Build and push Docker image then deploy to VPS"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+          
+      - name: Login Docker
+        uses: docker/login-action@v2.0.0
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      
+      - name: Build image
+        run: docker build -t ${{ secrets.DOCKER_HUB_IMAGENAME }} .
+      
+      - name: Push image to Docker Hub
+        run: docker push ${{ secrets.DOCKER_HUB_IMAGENAME }}
+        
+      - name: Deploy to VPS
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.REMOTE_SSH }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+        run: |
+          echo "$SSH_PRIVATE_KEY" > private_key && chmod 400 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${REMOTE_USER}@${REMOTE_HOST} '
+              cd ~/apps/agcm-hub &&
+              docker compose down &&
+              wget https://github.com/ayatkyo/alterra-agmc/blob/day-10-auto-deploy/docker-compose.hub.yaml &&
+              mv -f docker-compose.hub.yaml docker-compose.yaml &&
+              docker compose up
+          '
+          
