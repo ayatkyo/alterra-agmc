@@ -38,7 +38,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key ${REMOTE_USER}@${REMOTE_HOST} '
               cd ~/apps/agcm-hub &&
               docker compose down &&
-              wget https://github.com/ayatkyo/alterra-agmc/blob/day-10-auto-deploy/docker-compose.hub.yaml &&
+              wget https://raw.githubusercontent.com/ayatkyo/alterra-agmc/day-10-auto-deploy/docker-compose.hub.yaml &&
               mv -f docker-compose.hub.yaml docker-compose.yaml &&
               docker compose up
           '
