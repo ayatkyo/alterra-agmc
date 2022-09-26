@@ -3,7 +3,7 @@ name: Auto Deploy to VPS
 on:
   push:
     branches:
-      - "day-10-auto-deploy"
+      - day-10-auto-deploy
 
 jobs:
   deploy:
