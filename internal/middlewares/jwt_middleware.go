@@ -4,8 +4,8 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/ayatkyo/alterra-agcm/day-10/pkg/constants"
-	"github.com/ayatkyo/alterra-agcm/day-10/pkg/utils"
+	"github.com/ayatkyo/alterra-agmc/day-10/pkg/constants"
+	"github.com/ayatkyo/alterra-agmc/day-10/pkg/utils"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )

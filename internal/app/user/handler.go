@@ -3,9 +3,9 @@ package user
 import (
 	"strconv"
 
-	"github.com/ayatkyo/alterra-agcm/day-10/internal/dto"
-	"github.com/ayatkyo/alterra-agcm/day-10/internal/factory"
-	"github.com/ayatkyo/alterra-agcm/day-10/pkg/utils"
+	"github.com/ayatkyo/alterra-agmc/day-10/internal/dto"
+	"github.com/ayatkyo/alterra-agmc/day-10/internal/factory"
+	"github.com/ayatkyo/alterra-agmc/day-10/pkg/utils"
 	"github.com/labstack/echo/v4"
 )
 

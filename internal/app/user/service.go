@@ -4,11 +4,11 @@ import (
 	"context"
 	"errors"
 
-	"github.com/ayatkyo/alterra-agcm/day-10/internal/dto"
-	"github.com/ayatkyo/alterra-agcm/day-10/internal/factory"
-	"github.com/ayatkyo/alterra-agcm/day-10/internal/models"
-	"github.com/ayatkyo/alterra-agcm/day-10/internal/repository"
-	"github.com/ayatkyo/alterra-agcm/day-10/pkg/utils"
+	"github.com/ayatkyo/alterra-agmc/day-10/internal/dto"
+	"github.com/ayatkyo/alterra-agmc/day-10/internal/factory"
+	"github.com/ayatkyo/alterra-agmc/day-10/internal/models"
+	"github.com/ayatkyo/alterra-agmc/day-10/internal/repository"
+	"github.com/ayatkyo/alterra-agmc/day-10/pkg/utils"
 )
 
 type service struct {

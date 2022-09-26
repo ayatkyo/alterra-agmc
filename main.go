@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/ayatkyo/alterra-agcm/day-10/database"
-	"github.com/ayatkyo/alterra-agcm/day-10/internal/factory"
-	"github.com/ayatkyo/alterra-agcm/day-10/internal/http"
-	"github.com/ayatkyo/alterra-agcm/day-10/internal/middlewares"
-	"github.com/ayatkyo/alterra-agcm/day-10/pkg/config"
+	"github.com/ayatkyo/alterra-agmc/day-10/database"
+	"github.com/ayatkyo/alterra-agmc/day-10/internal/factory"
+	"github.com/ayatkyo/alterra-agmc/day-10/internal/http"
+	"github.com/ayatkyo/alterra-agmc/day-10/internal/middlewares"
+	"github.com/ayatkyo/alterra-agmc/day-10/pkg/config"
 	"github.com/labstack/echo/v4"
 	"github.com/spf13/viper"
 )
