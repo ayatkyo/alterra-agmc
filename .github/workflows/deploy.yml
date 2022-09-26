@@ -3,6 +3,7 @@ name: Auto Deploy to VPS
 on:
   push:
     branches:
+      - main 
       - day-10-auto-deploy
 
 jobs:
@@ -12,6 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: day-10-auto-deploy
           
       - name: Login Docker
         uses: docker/login-action@v2.0.0
@@ -39,4 +42,3 @@ jobs:
               mv -f docker-compose.hub.yaml docker-compose.yaml &&
               docker compose up
           '
-          
