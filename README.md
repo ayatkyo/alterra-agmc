@@ -13,4 +13,5 @@ Submission repo for **Advanced Golang Mini Course**.
 - [Day 7 - Dockerize Application](day-7/)
 - [Day 8 - Deployment](day-8/)
 - Day 9 - No task
-- [Day 10 - CI/CD](/github/ayatkyo/alterra-agmc/tree/day-10-auto-deploy)
+- [Day 10 - CI/CD](https://github.com/ayatkyo/alterra-agmc/tree/day-10-auto-deploy)
+
