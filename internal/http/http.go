@@ -14,7 +14,7 @@ func NewHttp(e *echo.Echo, f *factory.Factory) {
 
 	e.GET("/", func(c echo.Context) error {
 		return utils.ResponseSuccess(c, "Alterra Day 10 (CI/CD)", map[string]any{
-			"last_change": "Fix typo",
+			"last_change": "Saparate Github Action jobs",
 		})
 	})
 
