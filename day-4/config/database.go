@@ -3,7 +3,7 @@ package config
 import (
 	"fmt"
 
-	"github.com/ayatkyo/alterra-agcm/day-4/models"
+	"github.com/ayatkyo/alterra-agmc/day-4/models"
 	"github.com/spf13/viper"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

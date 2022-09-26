@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ayatkyo/alterra-agcm/day-2/config"
-	"github.com/ayatkyo/alterra-agcm/day-2/routes"
+	"github.com/ayatkyo/alterra-agmc/day-2/config"
+	"github.com/ayatkyo/alterra-agmc/day-2/routes"
 )
 
 func main() {

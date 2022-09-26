@@ -37,7 +37,7 @@ Berikut collection variable yang saya gunakan.
 
 ![image-20220926081015419](./assets/image-20220926081015419.png)
 
-Jika ingin menggunakan collection yang sama bisa download di [sini](./Alterra%20AGCM%20Day%208.postman_collection.json).
+Jika ingin menggunakan collection yang sama bisa download di [sini](./Alterra%20AGMC%20Day%208.postman_collection.json).
 
 ## Route Status
 

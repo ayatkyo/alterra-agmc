@@ -22,7 +22,7 @@ Disini saya tidak menggunakan **AWS** tetapi menggunakan [Linode](https://www.li
 
 Aplikasi sudah ter-deploy dan bisa diakses di http://172.104.44.239:15000/status
 
-Postman collection tersedia di [sini](./Alterra%20AGCM%20Day%208.postman_collection.json).
+Postman collection tersedia di [sini](./Alterra%20AGMC%20Day%208.postman_collection.json).
 
 Berikut langkah-langkah yang gunakan saat melakukan deploy:
 

@@ -1,10 +1,10 @@
 package controllers
 
 import (
-	"github.com/ayatkyo/alterra-agcm/day-3/config"
-	"github.com/ayatkyo/alterra-agcm/day-3/middlewares"
-	"github.com/ayatkyo/alterra-agcm/day-3/models"
-	"github.com/ayatkyo/alterra-agcm/day-3/utils"
+	"github.com/ayatkyo/alterra-agmc/day-3/config"
+	"github.com/ayatkyo/alterra-agmc/day-3/middlewares"
+	"github.com/ayatkyo/alterra-agmc/day-3/models"
+	"github.com/ayatkyo/alterra-agmc/day-3/utils"
 	"github.com/labstack/echo/v4"
 )
 

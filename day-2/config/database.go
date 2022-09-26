@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ayatkyo/alterra-agcm/day-2/models"
+	"github.com/ayatkyo/alterra-agmc/day-2/models"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )

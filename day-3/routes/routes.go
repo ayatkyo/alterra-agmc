@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"github.com/ayatkyo/alterra-agcm/day-3/controllers"
-	"github.com/ayatkyo/alterra-agcm/day-3/middlewares"
+	"github.com/ayatkyo/alterra-agmc/day-3/controllers"
+	"github.com/ayatkyo/alterra-agmc/day-3/middlewares"
 	"github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"
 )

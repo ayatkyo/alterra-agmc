@@ -1,4 +1,4 @@
-module github.com/ayatkyo/alterra-agcm/day-6
+module github.com/ayatkyo/alterra-agmc/day-6
 
 go 1.19
 

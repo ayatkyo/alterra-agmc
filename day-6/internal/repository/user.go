@@ -3,8 +3,8 @@ package repository
 import (
 	"context"
 
-	"github.com/ayatkyo/alterra-agcm/day-6/internal/dto"
-	"github.com/ayatkyo/alterra-agcm/day-6/internal/models"
+	"github.com/ayatkyo/alterra-agmc/day-6/internal/dto"
+	"github.com/ayatkyo/alterra-agmc/day-6/internal/models"
 	"gorm.io/gorm"
 )
 

@@ -1,9 +1,9 @@
 package auth
 
 import (
-	"github.com/ayatkyo/alterra-agcm/day-6/internal/dto"
-	"github.com/ayatkyo/alterra-agcm/day-6/internal/factory"
-	"github.com/ayatkyo/alterra-agcm/day-6/pkg/utils"
+	"github.com/ayatkyo/alterra-agmc/day-6/internal/dto"
+	"github.com/ayatkyo/alterra-agmc/day-6/internal/factory"
+	"github.com/ayatkyo/alterra-agmc/day-6/pkg/utils"
 	"github.com/labstack/echo/v4"
 )
 

@@ -3,7 +3,7 @@ package database
 import (
 	"fmt"
 
-	"github.com/ayatkyo/alterra-agcm/day-7/internal/models"
+	"github.com/ayatkyo/alterra-agmc/day-7/internal/models"
 	"github.com/spf13/viper"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

@@ -1,6 +1,6 @@
 package database
 
-import "github.com/ayatkyo/alterra-agcm/day-3/models"
+import "github.com/ayatkyo/alterra-agmc/day-3/models"
 
 var BookDB []models.Book = []models.Book{
 	{

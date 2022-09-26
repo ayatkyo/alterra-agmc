@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/ayatkyo/alterra-agcm/day-2/lib/database"
-	"github.com/ayatkyo/alterra-agcm/day-2/models"
-	"github.com/ayatkyo/alterra-agcm/day-2/utils"
+	"github.com/ayatkyo/alterra-agmc/day-2/lib/database"
+	"github.com/ayatkyo/alterra-agmc/day-2/models"
+	"github.com/ayatkyo/alterra-agmc/day-2/utils"
 	"github.com/labstack/echo/v4"
 )
 

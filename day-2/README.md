@@ -18,6 +18,6 @@
 
 ## How to test the API
 
-- Import **Postman collection** from  `Alterra AGCM Day 2.postman_collection.json` 
+- Import **Postman collection** from  `Alterra AGMC Day 2.postman_collection.json` 
 - Import **Postman environment** from  `Alterra AGMC Day 2.postman_environment.json`
 - Adjust the environment variable

@@ -1,7 +1,7 @@
 package user
 
 import (
-	"github.com/ayatkyo/alterra-agcm/day-6/internal/middlewares"
+	"github.com/ayatkyo/alterra-agmc/day-6/internal/middlewares"
 	"github.com/labstack/echo/v4"
 )
 

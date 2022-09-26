@@ -1,11 +1,11 @@
 package http
 
 import (
-	"github.com/ayatkyo/alterra-agcm/day-6/internal/app/auth"
-	"github.com/ayatkyo/alterra-agcm/day-6/internal/app/book"
-	"github.com/ayatkyo/alterra-agcm/day-6/internal/app/user"
-	"github.com/ayatkyo/alterra-agcm/day-6/internal/factory"
-	"github.com/ayatkyo/alterra-agcm/day-6/pkg/utils"
+	"github.com/ayatkyo/alterra-agmc/day-6/internal/app/auth"
+	"github.com/ayatkyo/alterra-agmc/day-6/internal/app/book"
+	"github.com/ayatkyo/alterra-agmc/day-6/internal/app/user"
+	"github.com/ayatkyo/alterra-agmc/day-6/internal/factory"
+	"github.com/ayatkyo/alterra-agmc/day-6/pkg/utils"
 	"github.com/labstack/echo/v4"
 )
 

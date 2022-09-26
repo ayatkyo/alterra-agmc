@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
-	"github.com/ayatkyo/alterra-agcm/day-7/internal/models"
-	"github.com/ayatkyo/alterra-agcm/day-7/pkg/utils"
+	"github.com/ayatkyo/alterra-agmc/day-7/internal/models"
+	"github.com/ayatkyo/alterra-agmc/day-7/pkg/utils"
 )
 
 type Book interface {

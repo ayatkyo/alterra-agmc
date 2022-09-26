@@ -3,7 +3,7 @@ package utils
 import (
 	"time"
 
-	"github.com/ayatkyo/alterra-agcm/day-7/pkg/constants"
+	"github.com/ayatkyo/alterra-agmc/day-7/pkg/constants"
 	"github.com/golang-jwt/jwt"
 	"github.com/labstack/echo/v4"
 )

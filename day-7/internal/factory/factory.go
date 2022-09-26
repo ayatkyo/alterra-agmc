@@ -1,8 +1,8 @@
 package factory
 
 import (
-	"github.com/ayatkyo/alterra-agcm/day-7/database"
-	"github.com/ayatkyo/alterra-agcm/day-7/internal/repository"
+	"github.com/ayatkyo/alterra-agmc/day-7/database"
+	"github.com/ayatkyo/alterra-agmc/day-7/internal/repository"
 )
 
 type Factory struct {

@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/ayatkyo/alterra-agcm/day-3/constants"
-	"github.com/ayatkyo/alterra-agcm/day-3/utils"
+	"github.com/ayatkyo/alterra-agmc/day-3/constants"
+	"github.com/ayatkyo/alterra-agmc/day-3/utils"
 	"github.com/golang-jwt/jwt"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"

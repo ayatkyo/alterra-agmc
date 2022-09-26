@@ -3,10 +3,10 @@ package controllers
 import (
 	"strconv"
 
-	"github.com/ayatkyo/alterra-agcm/day-3/lib/database"
-	"github.com/ayatkyo/alterra-agcm/day-3/middlewares"
-	"github.com/ayatkyo/alterra-agcm/day-3/models"
-	"github.com/ayatkyo/alterra-agcm/day-3/utils"
+	"github.com/ayatkyo/alterra-agmc/day-3/lib/database"
+	"github.com/ayatkyo/alterra-agmc/day-3/middlewares"
+	"github.com/ayatkyo/alterra-agmc/day-3/models"
+	"github.com/ayatkyo/alterra-agmc/day-3/utils"
 	"github.com/labstack/echo/v4"
 )
 

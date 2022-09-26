@@ -3,9 +3,9 @@ package book
 import (
 	"context"
 
-	"github.com/ayatkyo/alterra-agcm/day-7/internal/factory"
-	"github.com/ayatkyo/alterra-agcm/day-7/internal/models"
-	"github.com/ayatkyo/alterra-agcm/day-7/internal/repository"
+	"github.com/ayatkyo/alterra-agmc/day-7/internal/factory"
+	"github.com/ayatkyo/alterra-agmc/day-7/internal/models"
+	"github.com/ayatkyo/alterra-agmc/day-7/internal/repository"
 )
 
 type service struct {

@@ -3,8 +3,8 @@ package database
 import (
 	"errors"
 
-	"github.com/ayatkyo/alterra-agcm/day-2/config"
-	"github.com/ayatkyo/alterra-agcm/day-2/models"
+	"github.com/ayatkyo/alterra-agmc/day-2/config"
+	"github.com/ayatkyo/alterra-agmc/day-2/models"
 )
 
 func GetUsers() (any, error) {

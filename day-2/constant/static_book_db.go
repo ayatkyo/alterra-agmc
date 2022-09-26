@@ -1,6 +1,6 @@
 package constant
 
-import "github.com/ayatkyo/alterra-agcm/day-2/models"
+import "github.com/ayatkyo/alterra-agmc/day-2/models"
 
 var StaticBookDB []models.Book = []models.Book{
 	{

@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/ayatkyo/alterra-agcm/day-3/config"
-	"github.com/ayatkyo/alterra-agcm/day-3/middlewares"
-	"github.com/ayatkyo/alterra-agcm/day-3/routes"
+	"github.com/ayatkyo/alterra-agmc/day-3/config"
+	"github.com/ayatkyo/alterra-agmc/day-3/middlewares"
+	"github.com/ayatkyo/alterra-agmc/day-3/routes"
 	"github.com/spf13/viper"
 )
 
