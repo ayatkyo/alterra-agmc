@@ -13,7 +13,7 @@ func NewHttp(e *echo.Echo, f *factory.Factory) {
 	e.Validator = utils.EchoCustomValidator
 
 	e.GET("/", func(c echo.Context) error {
-		return utils.ResponseSuccess(c, "Alterra Day 10 (CI/CD) - Change", nil)
+		return utils.ResponseSuccess(c, "Alterra Day 10 (CI/CD) - Done", nil)
 	})
 
 	e.GET("/status", func(c echo.Context) error {
