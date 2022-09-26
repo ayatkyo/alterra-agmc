@@ -11,4 +11,6 @@ Submission repo for **Advanced Golang Mini Course**.
 - Day 5 - No task
 - [Day 6 - Clean Architecture](day-6/)
 - [Day 7 - Dockerize Application](day-7/)
+- [Day 8 - Deployment](day-8/)
+- Day 9 - No task
 - ...
