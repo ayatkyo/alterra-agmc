@@ -67,6 +67,8 @@ Tunggu hingga proses selesai.
 
 Aplikasi sekarang bisa diakses menggunakan `{IP SERVER}:15000`.
 
+Contohnya: https://agmc.ayat.dev/status
+
 Cek route `/status` melalui browser, jika muncul output seperti berikut berarti kita sudah berhasil terdeploy.
 
 ![image-20220926080706965](./assets/image-20220926080706965.png)

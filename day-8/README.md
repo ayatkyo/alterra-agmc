@@ -20,11 +20,11 @@
 
 Disini saya tidak menggunakan **AWS** tetapi menggunakan [Linode](https://www.linode.com/) sebagai target deployment.
 
-Aplikasi sudah ter-deploy dan bisa diakses di http://172.104.44.239:15000/status
+Aplikasi sudah ter-deploy dan bisa diakses di https://agmc.ayat.dev/status
 
 Postman collection tersedia di [sini](./Alterra%20AGMC%20Day%208.postman_collection.json).
 
-Berikut langkah-langkah yang gunakan saat melakukan deploy:
+Berikut langkah-langkah yang saya lakukan saat melakukan deploy:
 
 - [Membuat Linode Compute Instance](./id-linode-setup.md)
 - [Setup SSH dengan key](./id-setup-ssh-key.md)
