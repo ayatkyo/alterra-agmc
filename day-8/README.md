@@ -24,7 +24,7 @@ Aplikasi sudah ter-deploy dan bisa diakses di https://agmc.ayat.dev/status
 
 Postman collection tersedia di [sini](./Alterra%20AGMC%20Day%208.postman_collection.json).
 
-Berikut langkah-langkah yang saya lakukan saat melakukan deploy:
+Berikut langkah-langkah yang saya lakukan saat melakukan deployment:
 
 - [Membuat Linode Compute Instance](./id-linode-setup.md)
 - [Setup SSH dengan key](./id-setup-ssh-key.md)
